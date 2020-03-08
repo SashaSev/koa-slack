@@ -126,7 +126,7 @@ io.on('connection', socket => {
 
         socket.emit('message', generateMessage('Admin', 'Welcome!'));
         socket.broadcast.to(user.workspace).emit('message', generateMessage('Admin', `${user.username} has joined!`));
-        io.to(user.workspace).emit('roomData', {
+        io.to(user.workspace).emit('workspaceData', {
             workspace: user.workspace,
             users: getUsersInWorkspace(user.workspace)
         });
