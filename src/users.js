@@ -1,8 +1,8 @@
 const users = [];
 
-const addUser = ({ id, username, workspace }) => {
+const addUser = ({id, username, workspace}) => {
     username = username.trim().toLowerCase();
-    workspace= workspace.trim().toLowerCase();
+    workspace = workspace.trim().toLowerCase();
 
     // Validate the data
     if (!username || !workspace) {
@@ -23,9 +23,9 @@ const addUser = ({ id, username, workspace }) => {
     }
 
     // Store user
-    const user = { id, username, workspace };
+    const user = {id, username, workspace};
     users.push(user);
-    return { user }
+    return {user}
 };
 
 const getUser = (id) => {

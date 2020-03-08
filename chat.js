@@ -1,4 +1,3 @@
-
 const Qs = require('qs');
 const socket = io();
 
@@ -13,7 +12,7 @@ const messageTemplate = document.querySelector('#message-template').innerHTML;
 const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML;
 
 
-const { username, workspace } = Qs.parse(location.search, { ignoreQueryPrefix: true });
+const {username, workspace} = Qs.parse(location.search, {ignoreQueryPrefix: true});
 // const autoscroll = () => {
 //     const newMessage = messages.lastElementChild;
 //
@@ -46,7 +45,7 @@ socket.on('message', (message) => {
     // autoscroll()
 });
 
-socket.on('workspaceData', ({ workspace, users }) => {
+socket.on('workspaceData', ({workspace, users}) => {
     document.querySelector('#sidebar').innerHTML = Mustache.render(sidebarTemplate, {
         workspace,
         users
@@ -74,7 +73,7 @@ messageForm.addEventListener('submit', (e) => {
 });
 
 
-socket.emit('join', { username, workspace }, (error) => {
+socket.emit('join', {username, workspace}, (error) => {
     if (error) {
         alert(error);
         location.href = '/'
